@@ -69,7 +69,7 @@ resource "aws_route_table" "example" {
 }
 
 
-# route table asssocatin 
+# route table asssocatin for pvt
 
 resource "aws_main_route_table_association" "a" {
   vpc_id         = aws_vpc.foo.id
@@ -77,4 +77,10 @@ resource "aws_main_route_table_association" "a" {
 }
 
 
+# route table asssocation for pub
 
+
+resource "aws_main_route_table_association" "a" {
+  vpc_id         = aws_vpc.foo.id
+  route_table_id = aws_route_table.bar.id
+}
